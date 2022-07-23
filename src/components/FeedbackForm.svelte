@@ -4,6 +4,7 @@
     import {v4 as uuidv4} from 'uuid'
     import {Feedback} from '../store'
     import Card from './Card.svelte'
+    import Button from './Button.svelte';
   
     let text = ''
     let rating = 10
@@ -34,6 +35,7 @@
         })
   
         text = ''
+        btnDisabled = true
       }
     }
   </script>
@@ -46,7 +48,7 @@
   <form on:submit|preventDefault={handleSubmit}>
     <div class="input-group">
       <input type="text" on:input={handleInput} bind:value = {text} placeholder="Tell us something that keeps you coming back">
-      <button disabled={btnDisabled} type="submit">Send</button>
+      <Button disabled={btnDisabled} type="submit">Send</Button>
     </div>
     {#if message}
       <div class="message">
